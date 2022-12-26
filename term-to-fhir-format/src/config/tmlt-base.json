@@ -1,0 +1,105 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "TMLTRF20221003",
+  "url": "http://tmlt.this.or.th",
+  "version": "20221003",
+  "status": "draft",
+  "content": "complete",
+  "publisher": "Thai Health Information Standards Development Center (THIS)",
+  "contact": [
+    {
+      "name": "Thai Health Information Standards Development Center (THIS)",
+      "telecom": [
+        {
+          "system": "phone",
+          "value": " 028329298"
+        },
+        {
+          "system": "fax",
+          "value": " 028329291"
+        },
+        {
+          "system": "email",
+          "value": " this@this.or.th"
+        },
+        {
+          "system": "url",
+          "value": "https://www.this.or.th"
+        }
+      ]
+    }
+  ],
+  "description": "บัญชีข้อมูลและรหัสมาตรฐานการตรวจทางห้องปฏิบัติการทางการแพทย์ไทย (Thai Medical Laboratory Terminology: TMLT) โดยปรับลดความละเอียดของการระบุรายการ การตรวจทางห้องปฏิบัติการฯ ในมาตรฐาน LOINC ลงแต่ยังคงมีความเชื่อมโยงกับรหัสมาตรฐาน LOINC ได้อย่างสมบูรณ์",
+  "caseSensitive": false,
+  "versionNeeded": false,
+  "filter": [
+    {
+      "code": "parent",
+      "description": "Allows for the selection of a set of codes based on their appearance in the hierarchy. Parent selects immediate parent only.",
+      "operator": [
+        "="
+      ],
+      "value": "TMLTID"
+    },
+    {
+      "code": "child",
+      "description": "Allows for the selection of a set of codes based on their appearance in the hierarchy. Child selects immediate children only.",
+      "operator": [
+        "="
+      ],
+      "value": "TMLTID"
+    }
+  ],
+  "property": [
+    {
+      "code": "COMPONENT",
+      "description": "สิ่งที่ต้องการตรวจ",
+      "type": "code"
+    },
+    {
+      "code": "SCALE",
+      "description": "ชนิดของการวัด",
+      "type": "code"
+    },
+    {
+      "code": "UNIT",
+      "description": "หน่วยของการวัด",
+      "type": "code"
+    },
+    {
+      "code": "SPECIMEN",
+      "description": "สิ่งส่งตรวจ",
+      "type": "code"
+    },
+    {
+      "code": "METHOD",
+      "description": "เทคนิคหรือวิธีการตรวจ",
+      "type": "code"
+    },
+    {
+      "code": "ORDER_TYPE",
+      "description": "ประเภทรหัสการตรวจ (เช่น PANEL = รหัสชุดการตรวจ | ITEM = รหัสรายการตรวจ)",
+      "type": "code"
+    },
+    {
+      "code": "inactive",
+      "description": "Whether the code is active or not (defaults to false).",
+      "type": "boolean"
+    },
+    {
+      "code": "VersionlastRelease",
+      "description": "The last changed of the concept.",
+      "type": "dateTime"
+    },
+    {
+      "code": "parent",
+      "description": "The TMLTID that is a direct parent of the concept.",
+      "type": "code"
+    },
+    {
+      "code": "child",
+      "description": "The TMLTID that is a direct child of the concept.",
+      "type": "code"
+    }
+  ]
+}

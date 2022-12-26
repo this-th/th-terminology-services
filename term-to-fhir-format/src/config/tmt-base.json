@@ -1,0 +1,93 @@
+{
+    "resourceType": "CodeSystem",
+    "id": "TMTRF20221017",
+    "url": "http://tmt.this.or.th",
+    "version": "20221017",
+    "content": "complete",
+    "status": "draft",
+    "publisher": "Thai Health Information Standards Development Center (THIS)",
+    "contact": [
+        {
+            "name": "Thai Health Information Standards Development Center (THIS)",
+            "telecom": [
+                {
+                    "system": "phone",
+                    "value": " 028329298"
+                },
+                {
+                    "system": "fax",
+                    "value": " 028329291"
+                },
+                {
+                    "system": "email",
+                    "value": " this@this.or.th"
+                },
+                {
+                    "system": "url",
+                    "value": "https://www.this.or.th"
+                }
+            ]
+        }
+    ],
+    "description": "Thai Medicines Terminology (TMT) is a Thailand's semantic health data standard which uniquely identify Thai medicinal products from the active ingredient to the trade product. It employs the principle of â€œDesiderata for Controlled Medical Vocabularies in the Twenty-First Centuryâ€ in its development.",
+    "caseSensitive": false,
+    "versionNeeded": false,
+    "filter": [
+        {
+            "code": "class",
+            "description": "Allows for the selection of a set of codes based the class of the TMT concept that the TMTID belongs to.",
+            "operator": [
+                "is-a"
+            ],
+            "value": "class of the TMT"
+        },
+        {
+            "code": "parent",
+            "description": "Allows for the selection of a set of codes based on their appearance in the hierarchy. Parent selects immediate parent only.",
+            "operator": [
+                "="
+            ],
+            "value": "TMTID"
+        },
+        {
+            "code": "child",
+            "description": "Allows for the selection of a set of codes based on their appearance in the hierarchy. Child selects immediate children only.",
+            "operator": [
+                "="
+            ],
+            "value": "TMTID"
+        }
+    ],
+    "property": [
+        {
+            "code": "inactive",
+            "description": "Whether the code is active or not (defaults to false).",
+            "type": "boolean"
+        },
+        {
+            "code": "class",
+            "description": "The class of the TMT concept that the TMTID belongs to.",
+            "type": "code"
+        },
+        {
+            "code": "change_date",
+            "description": "The last changed of the concept.",
+            "type": "dateTime"
+        },
+        {
+            "code": "manufacturer",
+            "description": "The manufacturer of the concept.",
+            "type": "string"
+        },
+        {
+            "code": "parent",
+            "description": "The TMTID that is a direct parent of the concept.",
+            "type": "code"
+        },
+        {
+            "code": "child",
+            "description": "The TMTID that is a direct child of the concept.",
+            "type": "code"
+        }
+    ]
+}
