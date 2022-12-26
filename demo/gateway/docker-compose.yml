@@ -1,0 +1,15 @@
+version: '3'
+services:
+  opa:
+    image: openpolicyagent/opa:0.47.4
+    ports:
+      - 8181:8181
+    volumes:
+      - ./opa:/etc/opa
+    command:
+      - run
+      - --server
+      - --log-level=debug
+      - /etc/opa/rbac.json
+      - /etc/opa/fhir.rego
+      - /etc/opa/snowstorm.rego

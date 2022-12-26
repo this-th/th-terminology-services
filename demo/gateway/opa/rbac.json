@@ -1,0 +1,31 @@
+{
+  "roles": {
+    "TerminologyViewer": {
+      "/fhir-server/api/v4/CodeSystem/$lookup": ["GET", "POST"],
+      "/fhir-server/api/v4/CodeSystem/$subsumes": ["GET", "POST"],
+      "/fhir-server/api/v4/CodeSystem/$validate-code": ["GET", "POST"],
+      "/fhir-server/api/v4/CodeSystem/$find-matches": ["GET", "POST"],
+      "/fhir-server/api/v4/ValueSet/$expand": ["GET", "POST"],
+      "/fhir-server/api/v4/ValueSet/$validate-code": ["GET", "POST"],
+      "/fhir-server/api/v4/ConceptMap/$translate": ["GET", "POST"],
+      "/fhir-server/api/v4/ConceptMap/$closure": ["GET", "POST"]
+    }
+  },
+  "jwks": {
+    "keys": [
+      {
+        "kid": "",
+        "kty": "RSA",
+        "alg": "RS256",
+        "use": "sig",
+        "n": "",
+        "e": "",
+        "x5c": [
+          ""
+        ],
+        "x5t": "",
+        "x5t#S256": ""
+      }
+    ]
+  }
+}
