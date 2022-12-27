@@ -6,35 +6,44 @@
 # }
 
 package terminology.fhir
+
 import future.keywords.if
 
 default allow := false
 
 allow if {
 	jwt_verified
-    roles_allow
+	roles_allow
 }
 
 allow if {
 	jwt_verified
-    is_admin
+	is_admin
 }
 
-jwt_verified {
-    jwks := json.marshal(data.jwks)
-	io.jwt.verify_rs256(input.token, jwks)
-}
-
-user_roles = payload.realm_access.roles {
+jwt_payload = payload if {
 	[_, payload, _] := io.jwt.decode(input.token)
 }
 
-roles_allow {
-	user_allow_paths = data.roles[user_roles[_]]
-    user_rules = user_allow_paths[input.path]
-    user_rules[_] = input.method
+jwt_verified if {
+	jwks := json.marshal(data.jwks)
+	now := time.now_ns()
+	# Check signature
+	io.jwt.verify_rs256(input.token, jwks)
+	# Check expire time
+	jwt_payload.exp * 1000 * 1000 * 1000 > now
+	# Check audience
+	"https://fhirterm.sil-th.org" == jwt_payload.aud[i]
 }
 
-is_admin {
+user_roles = jwt_payload.realm_access.roles
+
+roles_allow if {
+	user_allow_paths = data.roles[user_roles[_]]
+	user_rules = user_allow_paths[input.path]
+	user_rules[_] = input.method
+}
+
+is_admin if {
 	"TerminologyAdmin" == user_roles[i]
 }
